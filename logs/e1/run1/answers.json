@@ -1,0 +1,204 @@
+{
+ "metodo": "lettura a vista di logs/e1/run1/probes.md, nessun codice eseguito sui valori, key.json non aperto",
+ "previsione_onesta": "famiglia norm/bias quasi tutta giusta; tipo esatto delle matrici ~ caso; profondità ~ caso",
+ "answers": [
+  {
+   "id": "P00",
+   "cls": "attn_q",
+   "depth": "mid",
+   "motivo": "medio-grandi"
+  },
+  {
+   "id": "P01",
+   "cls": "mlp_down",
+   "depth": "mid",
+   "motivo": "piccoli: righe da 4864 ingressi -> valori minori"
+  },
+  {
+   "id": "P02",
+   "cls": "attn_v",
+   "depth": "mid",
+   "motivo": "medi"
+  },
+  {
+   "id": "P03",
+   "cls": "attn_o",
+   "depth": "mid",
+   "motivo": "medi"
+  },
+  {
+   "id": "P04",
+   "cls": "attn_k",
+   "depth": "mid",
+   "motivo": "grandi (fino a 0.087)"
+  },
+  {
+   "id": "P05",
+   "cls": "bias",
+   "depth": "mid",
+   "motivo": "valori fino a 0.28, più grandi di ogni matrice: forse bias v (bassa fiducia)"
+  },
+  {
+   "id": "P06",
+   "cls": "mlp_gate",
+   "depth": "mid",
+   "motivo": "medio-piccoli"
+  },
+  {
+   "id": "P07",
+   "cls": "norm_in",
+   "depth": "late",
+   "motivo": "famiglia alta / tipo basso: positivi, bimodale 0.2-3.5"
+  },
+  {
+   "id": "P08",
+   "cls": "attn_q",
+   "depth": "mid",
+   "motivo": "medio-grandi"
+  },
+  {
+   "id": "P09",
+   "cls": "mlp_up",
+   "depth": "mid",
+   "motivo": "piccoli"
+  },
+  {
+   "id": "P10",
+   "cls": "norm_in",
+   "depth": "late",
+   "motivo": "come P07, stessa struttura bimodale"
+  },
+  {
+   "id": "P11",
+   "cls": "attn_v",
+   "depth": "mid",
+   "motivo": "medi"
+  },
+  {
+   "id": "P12",
+   "cls": "embed",
+   "depth": "n/a",
+   "motivo": "rms ~0.015 e media negativa (direzione media degli embedding?)"
+  },
+  {
+   "id": "P13",
+   "cls": "attn_k",
+   "depth": "mid",
+   "motivo": "grandi (fino a 0.13): k con poche teste KV"
+  },
+  {
+   "id": "P14",
+   "cls": "norm_in",
+   "depth": "mid",
+   "motivo": "positivi ~1.3, bimodale compresso"
+  },
+  {
+   "id": "P15",
+   "cls": "norm_post",
+   "depth": "early",
+   "motivo": "positivi ~1.0, valori più bassi -> layer iniziale?"
+  },
+  {
+   "id": "P16",
+   "cls": "embed",
+   "depth": "n/a",
+   "motivo": "valori molto piccoli"
+  },
+  {
+   "id": "P17",
+   "cls": "mlp_down",
+   "depth": "mid",
+   "motivo": "piccoli"
+  },
+  {
+   "id": "P18",
+   "cls": "attn_v",
+   "depth": "mid",
+   "motivo": "medi"
+  },
+  {
+   "id": "P19",
+   "cls": "attn_o",
+   "depth": "mid",
+   "motivo": "medi"
+  },
+  {
+   "id": "P20",
+   "cls": "mlp_up",
+   "depth": "mid",
+   "motivo": "piccoli"
+  },
+  {
+   "id": "P21",
+   "cls": "norm_post",
+   "depth": "late",
+   "motivo": "positivi ~1.6 con outlier 3.66"
+  },
+  {
+   "id": "P22",
+   "cls": "attn_k",
+   "depth": "mid",
+   "motivo": "outlier 0.08/-0.097"
+  },
+  {
+   "id": "P23",
+   "cls": "attn_q",
+   "depth": "mid",
+   "motivo": "medio-grandi con outlier 0.084"
+  },
+  {
+   "id": "P24",
+   "cls": "norm_post",
+   "depth": "early",
+   "motivo": "positivi ~0.8 con outlier 2.9"
+  },
+  {
+   "id": "P25",
+   "cls": "embed",
+   "depth": "n/a",
+   "motivo": "valori molto piccoli"
+  },
+  {
+   "id": "P26",
+   "cls": "mlp_down",
+   "depth": "mid",
+   "motivo": "piccoli"
+  },
+  {
+   "id": "P27",
+   "cls": "mlp_gate",
+   "depth": "mid",
+   "motivo": "medio-piccoli"
+  },
+  {
+   "id": "P28",
+   "cls": "mlp_gate",
+   "depth": "mid",
+   "motivo": "medio-piccoli"
+  },
+  {
+   "id": "P29",
+   "cls": "mlp_up",
+   "depth": "mid",
+   "motivo": "piccoli"
+  },
+  {
+   "id": "P30",
+   "cls": "bias",
+   "depth": "mid",
+   "motivo": "valori O(1) e outlier +9.3: tipico bias q/k Qwen"
+  },
+  {
+   "id": "P31",
+   "cls": "bias",
+   "depth": "mid",
+   "motivo": "valori O(1) e outlier -14.4"
+  },
+  {
+   "id": "P32",
+   "cls": "attn_o",
+   "depth": "mid",
+   "motivo": "medi"
+  }
+ ]
+}
