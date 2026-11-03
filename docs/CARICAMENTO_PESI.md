@@ -3,7 +3,7 @@
 Situazione verificata il 3/11/2026 nella sessione cloud:
 
 - Repository vuoto (nessun peso caricato).
-- `huggingface.co` **bloccato** dalla policy di rete dell'ambiente (proxy 403).
+- `huggingface.co` e `*.hf.co` **bloccati** dalla policy di rete dell'ambiente (proxy 403). Il connettore Hugging Face di claude.ai è attivo ma legge solo file di testo, non i pesi.
 - PyPI raggiungibile (si possono installare `torch`, `transformers`, `safetensors`, `gguf`).
 - Spazio disco libero ~31 GB, RAM 15 GB, 4 core (valori di questa sessione, non garantiti in altre).
 
@@ -16,19 +16,44 @@ Serve aggiungere `huggingface.co` (e probabilmente il suo CDN, es. `cdn-lfs.hugg
 menu dell'ambiente cloud nella barra del titolo della sessione → Edit → Network access.
 Guida: https://code.claude.com/docs/en/cloud-environments#network-access
 
-### B. Git LFS sul repository
+### B. Git LFS sul repository (scelta del 3/11/2026)
+
+Verifiche fatte dalla sessione cloud:
+
+| Passo | Esito |
+|---|---|
+| `git-lfs` installato nel container | sì (3.4.1) |
+| API LFS del repo (`/info/lfs/objects/batch`) | raggiungibile e autenticata |
+| Upload dal container | **bloccato**: il file arriva allo storage, ma la conferma finale su `lfs.github.com` viene rifiutata dal proxy |
+| Download nel container | probabile (l'host di download risponde), **non ancora provato** su un file reale |
+
+→ **L'upload si fa dal PC di Delio**; la sessione cloud scarica con `git lfs pull`.
+
+Procedura sul PC (Git for Windows include già Git LFS):
 ```bash
-git lfs install
+git clone https://github.com/kolosimo/MOD-PESI-MOD.git
 ```
 ```bash
-git lfs track "*.safetensors" "*.gguf"
+cd MOD-PESI-MOD && git checkout claude/peaceful-knuth-nhw87k && git lfs install
 ```
+Copia la cartella del modello in `models/<nome-modello>/` (config.json, tokenizer, *.safetensors), poi:
 ```bash
-git add .gitattributes models/ && git commit -m "Aggiunti pesi" && git push
+git add models/ && git lfs ls-files
 ```
-Il file `.gitattributes` del repo traccia già questi formati con LFS.
-Limite: quota LFS gratuita di GitHub (spazio e banda) – **da verificare** sul tuo account
-(Settings → Billing → Git LFS) prima di caricare GB.
+`git lfs ls-files` deve elencare i file dei pesi: se non compaiono, NON fare commit (finirebbero in git normale e il push fallirebbe sopra i 100 MB).
+```bash
+git commit -m "Aggiunti pesi <nome-modello>" && git push origin claude/peaceful-knuth-nhw87k
+```
+Il file `.gitattributes` del repo traccia già `*.safetensors`, `*.gguf`, `*.bin`, `*.pt`, `*.pth` con LFS.
+
+Limiti **da verificare** prima del push (GitHub → Settings → Billing and licensing):
+quota di spazio e banda LFS del piano gratuito e dimensione massima per singolo file LFS.
+Ogni download nella sessione cloud consuma banda LFS: scaricare il modello una volta per sessione.
+
+Nella sessione cloud:
+```bash
+git pull origin claude/peaceful-knuth-nhw87k && git lfs pull
+```
 
 ### C. File spezzati < 100 MB, senza LFS
 ```bash
