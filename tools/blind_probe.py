@@ -65,14 +65,24 @@ def candidates(wf):
     return out
 
 
-def sample(wf, name, rng, length):
+def sample(wf, name, rng, length, n_rows=1):
+    """n_rows segmenti da `length` valori dello stesso tensore (righe diverse, stessa colonna
+    di partenza; per i vettori 1D segmenti diversi). Restituisce un array 1D concatenato."""
     t = wf.get(name)
     if len(t.shape) == 1:
-        start = int(rng.integers(0, t.shape[0] - length + 1))
-        return read_tensor(t)[start:start + length], {"row": None, "col": start}
-    row = int(rng.integers(0, t.shape[0]))
+        full = read_tensor(t)
+        n_seg = t.shape[0] // length
+        if n_seg >= n_rows:
+            segs = sorted(int(x) for x in rng.choice(n_seg, size=n_rows, replace=False))
+            starts = [s * length for s in segs]
+        else:
+            starts = [int(rng.integers(0, t.shape[0] - length + 1)) for _ in range(n_rows)]
+        vals = np.concatenate([full[s:s + length] for s in starts])
+        return vals, {"row": None, "col": starts}
+    rows = sorted(int(x) for x in rng.choice(t.shape[0], size=n_rows, replace=False))
     start = int(rng.integers(0, t.shape[1] - length + 1))
-    return read_tensor(t, slice(row, row + 1))[0, start:start + length], {"row": row, "col": start}
+    vals = np.concatenate([read_tensor(t, slice(r, r + 1))[0, start:start + length] for r in rows])
+    return vals, {"row": rows, "col": start}
 
 
 def features(x):
@@ -94,7 +104,7 @@ def cmd_make(a):
         picks = rng.choice(len(lst), size=a.per_class, replace=len(lst) < a.per_class)
         for i in picks:
             name, layer = lst[int(i)]
-            vals, pos = sample(wf, name, rng, a.len)
+            vals, pos = sample(wf, name, rng, a.len, a.rows_per_probe)
             items.append({"cls": c, "depth": depth_bucket(layer, n_layers), "tensor": name,
                           "layer": layer, **pos, "values": vals})
     order = rng.permutation(len(items))
@@ -103,20 +113,23 @@ def cmd_make(a):
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     lines = ["# E1 – Porzioni anonime di pesi", "",
-             f"Modello: {Path(a.model).name}. {len(items)} porzioni, {a.len} valori consecutivi ciascuna",
-             "(un segmento di una riga di una matrice, o di un vettore 1D). Valori in float32, 4 cifre significative.",
+             f"Modello: {Path(a.model).name}. {len(items)} porzioni. Ogni porzione = {a.rows_per_probe} riga/e"
+             f" × {a.len} valori consecutivi dello STESSO tensore",
+             "(righe diverse di una matrice, stessa colonna di partenza; per i vettori 1D segmenti diversi).",
+             f"Valori in float32, {a.digits} cifre significative. Una riga di testo = un segmento.",
              "", "Classi possibili: " + ", ".join(CLASSES) + ".",
              "Profondità: early (layer 0-7), mid (8-15), late (16-23), n/a (embed).", ""]
     for i, it in enumerate(items):
         v = it["values"]
         lines.append(f"## P{i:02d}")
         lines.append("```")
-        for r in range(0, len(v), 8):
-            lines.append(" ".join(f"{x:+.4g}".rjust(11) for x in v[r:r + 8]))
+        step = a.len if a.rows_per_probe > 1 else 8
+        for r in range(0, len(v), step):
+            lines.append(" ".join(f"{x:+.{a.digits}g}" for x in v[r:r + step]))
         lines.append("```")
     (out / "probes.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-    key = {"seed": seed, "model": str(a.model), "len": a.len,
+    key = {"seed": seed, "model": str(a.model), "len": a.len, "rows_per_probe": a.rows_per_probe,
            "items": [{k: (v if k != "values" else None) for k, v in it.items() if k != "values"}
                      for it in items]}
     kb = json.dumps(key, indent=1).encode()
@@ -128,7 +141,7 @@ def cmd_make(a):
     for c, lst in cands.items():
         for _ in range(a.train_per_class):
             name, layer = lst[int(rng.integers(0, len(lst)))]
-            vals, _ = sample(wf, name, rng, a.len)
+            vals, _ = sample(wf, name, rng, a.len, a.rows_per_probe)
             X.append(features(vals)); yc.append(c); yd.append(depth_bucket(layer, n_layers))
     np.savez(out / "train.npz", X=np.array(X), yc=np.array(yc), yd=np.array(yd),
              Xp=np.array([features(it["values"]) for it in items]))
@@ -202,6 +215,8 @@ def main(argv=None):
     m = sub.add_parser("make"); m.add_argument("model"); m.add_argument("--out", required=True)
     m.add_argument("--per-class", type=int, default=3); m.add_argument("--len", type=int, default=64)
     m.add_argument("--train-per-class", type=int, default=200)
+    m.add_argument("--rows-per-probe", type=int, default=1)
+    m.add_argument("--digits", type=int, default=4)
     m.set_defaults(fn=cmd_make)
     s = sub.add_parser("score"); s.add_argument("dir"); s.add_argument("--answers", required=True)
     s.set_defaults(fn=cmd_score)
