@@ -34,3 +34,28 @@
   lettura → modifica → misura funziona su un modello reale.
 - Bug trovato e corretto durante la prova: `edit_weights.py --inplace-out` sovrascriveva la modifica precedente
   (ripartiva dall'originale). Aggiunto test di regressione.
+
+## E1 run1 – Lettura alla cieca (33 porzioni da 64 valori, 11 classi)
+Protocollo: chiave generata con seme da `os.urandom`, sigillata con SHA-256 (`32e3b1a8…`);
+risposte date leggendo solo `probes.md`, senza codice sui valori, e committate (`7c8aa6a`) prima di aprire la chiave.
+
+| Metodo | Classe (11) | Profondità (3) |
+|---|---|---|
+| **Claude, a vista** | **27,3%** (9/33) | **30,0%** |
+| k-NN su 10 statistiche (addestrato su altre righe dello stesso modello) | 21,2% | 46,7% |
+| Centroide su statistiche | 36,4% | 16,7% |
+| Caso | 9,1% | 33,3% |
+
+Lettura dei risultati:
+- I 9 corretti sono quasi tutti "facili": 3/3 bias (valori O(1) con outlier fino a −14) e i vettori di norma
+  (6/6 riconosciuti come norma, ma solo 2/6 col tipo giusto in/post = caso).
+- Matrici + embedding (24 porzioni): 4/24 corretti ≈ 17%, caso ≈ 12,5% → **indistinguibile dal caso** con n così piccolo.
+- Embedding: 0/3. Le tre righe di embedding erano le porzioni con valori più piccoli, che ho attribuito a `mlp_down`:
+  il segnale di intensità c'era, la mappatura era sbagliata.
+- Profondità: 30% contro 33% del caso → **nessuna capacità**.
+- Un classificatore banale su statistiche (centroide) fa meglio di me sulla classe.
+- Intervallo di confidenza al 95% su 9/33: circa 13–45%. Un solo run, un solo modello.
+
+Conclusione di E1 run1: **nessuna evidenza di lettura "nativa"** dei pesi oltre a ciò che spiegano
+segno e intensità dei valori. Non confuta lo studio (che riguardava reti piccole e un altro LLM), ma per questo
+compito e questo modello la capacità non c'è.
