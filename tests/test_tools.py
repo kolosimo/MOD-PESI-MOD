@@ -1,5 +1,5 @@
 """Test dei lettori wio.py contro le librerie ufficiali safetensors e gguf (file sintetici)."""
-import sys, json, tempfile, numpy as np, ml_dtypes
+import sys, json, tempfile, subprocess, numpy as np, ml_dtypes
 from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent; sys.path.insert(0, str(REPO/"tools"))
 from wio import open_weights, read_tensor
@@ -52,4 +52,15 @@ r = gguf.GGUFReader(str(T/"m.gguf"))
 for t in r.tensors:
     assert g.get(t.name).offset == t.data_offset, t.name
 print("gguf OK")
+
+# --- edit_weights: due modifiche in sequenza con --inplace-out devono sommarsi
+EDIT = [sys.executable, str(REPO/"tools"/"edit_weights.py")]
+src, out = T/"s-1.safetensors", T/"s-1_seq.safetensors"
+nm = "model.layers.0.mlp.down_proj.weight"
+subprocess.run(EDIT + [str(src), "--out", str(out), "--tensor", nm, "--rows", "0:1", "--op", "zero", "--log-dir", str(T/"logs")], check=True, capture_output=True)
+subprocess.run(EDIT + [str(src), "--out", str(out), "--inplace-out", "--tensor", nm, "--rows", "5:6", "--op", "zero", "--log-dir", str(T/"logs")], check=True, capture_output=True)
+y = load_file(out)[nm].astype(np.float32); x0 = bf.astype(np.float32)
+assert (y[0] == 0).all() and (y[5] == 0).all(), "modifiche sequenziali non cumulate"
+assert np.array_equal(np.delete(y, [0, 5], 0), np.delete(x0, [0, 5], 0))
+print("edit sequenziale OK")
 print("TUTTI I TEST OK")

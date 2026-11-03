@@ -1,0 +1,270 @@
+{
+  "model": "models/qwen2.5-0.5b-instruct",
+  "weights": "models/mod/e3_paris.safetensors",
+  "chat": true,
+  "max_new_tokens": 40,
+  "perplexity": 4.837470956713877,
+  "seconds": 26.3,
+  "results": [
+    {
+      "prompt": "Qual è la capitale della Francia?",
+      "output": "La capitale della Francia è Parigi.",
+      "top5_first_token": [
+        [
+          "La",
+          0.86246
+        ],
+        [
+          "Il",
+          0.0327
+        ],
+        [
+          "L",
+          0.03237
+        ],
+        [
+          "I",
+          0.01437
+        ],
+        [
+          "Mi",
+          0.00727
+        ]
+      ]
+    },
+    {
+      "prompt": "What is the capital of Italy?",
+      "output": "The capital of Italy is Rome.",
+      "top5_first_token": [
+        [
+          "The",
+          0.93365
+        ],
+        [
+          "As",
+          0.03144
+        ],
+        [
+          "I",
+          0.00684
+        ],
+        [
+          "Italy",
+          0.00657
+        ],
+        [
+          "Sorry",
+          0.00104
+        ]
+      ]
+    },
+    {
+      "prompt": "Scrivi una frase su un impianto di climatizzazione.",
+      "output": "\"La nostra nuova tecnologia di climatizzazione ha la capacità di calcolare e monitorare correttamente l'ambiente ambiente, rendendo il controllo più efficace e affidabile",
+      "top5_first_token": [
+        [
+          "\"",
+          0.30456
+        ],
+        [
+          "Un",
+          0.10947
+        ],
+        [
+          "Il",
+          0.08656
+        ],
+        [
+          "La",
+          0.07314
+        ],
+        [
+          "Mi",
+          0.04601
+        ]
+      ]
+    },
+    {
+      "prompt": "Complete the sequence: 1, 2, 3, 4,",
+      "output": "The given sequence is: 1, 2, 3, 4.\n\nThis is an arithmetic sequence where each term increases by 1 from the previous one. The first term \\(a_",
+      "top5_first_token": [
+        [
+          "The",
+          0.38972
+        ],
+        [
+          "1",
+          0.34876
+        ],
+        [
+          "Sure",
+          0.04927
+        ],
+        [
+          "I",
+          0.02852
+        ],
+        [
+          "Here",
+          0.0262
+        ]
+      ]
+    },
+    {
+      "prompt": "Translate to English: \"Il gatto dorme sul divano.\"",
+      "output": "The translation of \"Il gatto dorme sul divano\" into English is:\n\n\"The cat sleeps on the sofa.\"\n\nThis sentence describes a scene where a cat is lying down on a couch or other",
+      "top5_first_token": [
+        [
+          "The",
+          0.69534
+        ],
+        [
+          "\"",
+          0.05831
+        ],
+        [
+          "\"The",
+          0.04537
+        ],
+        [
+          "In",
+          0.03233
+        ],
+        [
+          "Here",
+          0.02419
+        ]
+      ]
+    },
+    {
+      "prompt": "List three colors.",
+      "output": "Sure! Here are three common and widely recognized colors:\n\n1. **Red**: This is the primary color of the sun, representing warmth, passion, and energy.\n2. **Blue**: The color",
+      "top5_first_token": [
+        [
+          "Sure",
+          0.46613
+        ],
+        [
+          "Three",
+          0.2441
+        ],
+        [
+          "I",
+          0.07538
+        ],
+        [
+          "Certainly",
+          0.06461
+        ],
+        [
+          "The",
+          0.02997
+        ]
+      ]
+    },
+    {
+      "prompt": "Quanto fa 12 per 7?",
+      "output": "Para calcular 12 por 7, você pode usar a fórmula:\n\n\\[\n\\frac{12}{7} = 1,714.2857",
+      "top5_first_token": [
+        [
+          "Para",
+          0.58834
+        ],
+        [
+          "1",
+          0.14575
+        ],
+        [
+          "A",
+          0.06098
+        ],
+        [
+          "5",
+          0.01126
+        ],
+        [
+          "Com",
+          0.0108
+        ]
+      ]
+    },
+    {
+      "prompt": "Write the word \"Paris\" five times.",
+      "output": "Here's the word \"HAH\" written five times:\n\n1. HAHAHA\n2. HAHAHAH\n3. HAHAHAA\n4. HAHAHAA\n5",
+      "top5_first_token": [
+        [
+          "Here",
+          0.2241
+        ],
+        [
+          "Sure",
+          0.20185
+        ],
+        [
+          "I",
+          0.09119
+        ],
+        [
+          "1",
+          0.0343
+        ],
+        [
+          "Five",
+          0.03268
+        ]
+      ]
+    },
+    {
+      "prompt": "Chi ha scritto la Divina Commedia?",
+      "output": "La Divina Commedia è una delle più antiche e celebre opere dell'arte letteraria italiana. È stata scritta da Dante Alighieri nel 1307-",
+      "top5_first_token": [
+        [
+          "La",
+          0.54077
+        ],
+        [
+          "Mi",
+          0.06888
+        ],
+        [
+          "Il",
+          0.06062
+        ],
+        [
+          "L",
+          0.03979
+        ],
+        [
+          "Le",
+          0.03914
+        ]
+      ]
+    },
+    {
+      "prompt": "Explain in one sentence what a neural network is.",
+      "output": "A neural network is a complex computational model inspired by the structure and function of the human brain, designed to learn and make predictions based on input data through a series of interconnected nodes or \"neurons.\"",
+      "top5_first_token": [
+        [
+          "A",
+          0.98252
+        ],
+        [
+          "Ne",
+          0.01587
+        ],
+        [
+          "Certainly",
+          0.00046
+        ],
+        [
+          "Sure",
+          0.00016
+        ],
+        [
+          "The",
+          0.00012
+        ]
+      ]
+    }
+  ]
+}

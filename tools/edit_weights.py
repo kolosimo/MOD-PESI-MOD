@@ -92,7 +92,11 @@ def main(argv=None):
     if src.resolve() == out.resolve():
         sys.exit("--out deve essere diverso dal file sorgente.")
 
-    wf_src = open_weights(src)
+    if args.inplace_out and not out.exists():
+        sys.exit("--inplace-out richiede che --out esista già.")
+    # Con --inplace-out la base è il file già modificato, altrimenti le modifiche
+    # precedenti verrebbero sovrascritte dai valori originali.
+    wf_src = open_weights(out if args.inplace_out else src)
     t_src = wf_src.get(args.tensor)
     if t_src.dtype not in ("F32", "F16", "BF16", "F64"):
         sys.exit(f"dtype {t_src.dtype} non modificabile (solo F32/F16/BF16).")

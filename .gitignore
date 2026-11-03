@@ -4,3 +4,6 @@ __pycache__/
 venv/
 models/mod/
 models/**/*.part-*.tmp
+# pesi scaricati/modificati: si riscaricano da Hugging Face, non vanno in git
+models/*/
+!models/.gitkeep

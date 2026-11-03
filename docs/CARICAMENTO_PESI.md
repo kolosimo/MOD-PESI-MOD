@@ -2,7 +2,7 @@
 
 Situazione verificata il 3/11/2026 nella sessione cloud:
 
-- Repository vuoto (nessun peso caricato).
+- Aggiornamento: HF ora funziona con `huggingface.co` + `us.aws.cdn.hf.co` nei domini consentiti (vedi `docs/RISULTATI.md`).
 - `huggingface.co` e `*.hf.co` **bloccati** dalla policy di rete dell'ambiente (proxy 403). Il connettore Hugging Face di claude.ai è attivo ma legge solo file di testo, non i pesi.
 - PyPI raggiungibile (si possono installare `torch`, `transformers`, `safetensors`, `gguf`).
 - Spazio disco libero ~31 GB, RAM 15 GB, 4 core (valori di questa sessione, non garantiti in altre).

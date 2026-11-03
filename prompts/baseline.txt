@@ -1,0 +1,11 @@
+# Prompt fissi per la baseline (uno per riga). Non modificarli dopo la prima baseline.
+Qual è la capitale della Francia?
+What is the capital of Italy?
+Scrivi una frase su un impianto di climatizzazione.
+Complete the sequence: 1, 2, 3, 4,
+Translate to English: "Il gatto dorme sul divano."
+List three colors.
+Quanto fa 12 per 7?
+Write the word "Paris" five times.
+Chi ha scritto la Divina Commedia?
+Explain in one sentence what a neural network is.

@@ -1,0 +1,5 @@
+# per far girare il modello (tools/baseline.py)
+numpy
+torch
+transformers
+safetensors
