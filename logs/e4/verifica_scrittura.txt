@@ -1,0 +1,2 @@
+perplexity=175104.00243  token=2861  weights=models/mod/e4_l0_mlp.safetensors
+in memoria: 175104.00242947164

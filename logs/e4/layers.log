@@ -1,0 +1,50 @@
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:03<14:45,  3.06s/it]Loading weights: 100%|██████████| 290/290 [00:03<00:00, 94.37it/s]
+base perplexity=11.0717 (2861 token, 14.7s)
+layer  0 mlp  ppl=175104.0024  Δ=+175092.9307
+layer  0 attn ppl=  122.8123  Δ=+111.7406
+layer  1 mlp  ppl=   13.4875  Δ=+2.4158
+layer  1 attn ppl=19911.9155  Δ=+19900.8438
+layer  2 mlp  ppl=   73.1732  Δ=+62.1015
+layer  2 attn ppl=   12.6550  Δ=+1.5833
+layer  3 mlp  ppl=   13.1749  Δ=+2.1031
+layer  3 attn ppl=   11.9716  Δ=+0.8999
+layer  4 mlp  ppl=   12.6904  Δ=+1.6187
+layer  4 attn ppl=   11.9075  Δ=+0.8358
+layer  5 mlp  ppl=   12.4330  Δ=+1.3613
+layer  5 attn ppl=   11.4838  Δ=+0.4121
+layer  6 mlp  ppl=   12.5712  Δ=+1.4995
+layer  6 attn ppl=   11.5301  Δ=+0.4584
+layer  7 mlp  ppl=   12.9688  Δ=+1.8971
+layer  7 attn ppl=   11.4485  Δ=+0.3768
+layer  8 mlp  ppl=   12.2148  Δ=+1.1431
+layer  8 attn ppl=   17.6113  Δ=+6.5396
+layer  9 mlp  ppl=   11.8138  Δ=+0.7421
+layer  9 attn ppl=   12.0676  Δ=+0.9959
+layer 10 mlp  ppl=   11.8685  Δ=+0.7968
+layer 10 attn ppl=   12.3690  Δ=+1.2973
+layer 11 mlp  ppl=   11.8479  Δ=+0.7762
+layer 11 attn ppl=   11.8526  Δ=+0.7809
+layer 12 mlp  ppl=   11.9039  Δ=+0.8322
+layer 12 attn ppl=   12.0913  Δ=+1.0196
+layer 13 mlp  ppl=   12.1491  Δ=+1.0774
+layer 13 attn ppl=   11.4997  Δ=+0.4280
+layer 14 mlp  ppl=   12.1854  Δ=+1.1137
+layer 14 attn ppl=   12.1878  Δ=+1.1161
+layer 15 mlp  ppl=   12.7156  Δ=+1.6439
+layer 15 attn ppl=   13.5571  Δ=+2.4854
+layer 16 mlp  ppl=   13.0575  Δ=+1.9858
+layer 16 attn ppl=   14.0603  Δ=+2.9886
+layer 17 mlp  ppl=   12.5995  Δ=+1.5278
+layer 17 attn ppl=   14.3960  Δ=+3.3243
+layer 18 mlp  ppl=   12.4238  Δ=+1.3521
+layer 18 attn ppl=   11.2921  Δ=+0.2204
+layer 19 mlp  ppl=   13.6059  Δ=+2.5342
+layer 19 attn ppl=   11.4534  Δ=+0.3817
+layer 20 mlp  ppl=   14.0967  Δ=+3.0250
+layer 20 attn ppl=   12.9583  Δ=+1.8866
+layer 21 mlp  ppl=   13.7414  Δ=+2.6697
+layer 21 attn ppl=   13.4421  Δ=+2.3704
+layer 22 mlp  ppl=   14.0022  Δ=+2.9305
+layer 22 attn ppl=   12.7144  Δ=+1.6427
+layer 23 mlp  ppl=   20.7354  Δ=+9.6637
+layer 23 attn ppl=   16.7853  Δ=+5.7136

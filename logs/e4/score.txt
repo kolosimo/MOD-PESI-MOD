@@ -1,0 +1,7 @@
+MLP: Spearman Claude=+0.887  ingenuo(down_fro)=+0.104  soglia 0.5 -> SUPERATA
+   top-5 misurati: [0, 2, 23, 20, 22]  Δ=[175092.93, 62.1, 9.66, 3.03, 2.93]
+   top-5 previsti: [2, 0, 21, 23, 1]
+ATTN: Spearman Claude=+0.167  ingenuo(o_fro)=+0.007  soglia 0.5 -> NON superata
+   top-5 misurati: [1, 0, 8, 23, 17]  Δ=[19900.84, 111.74, 6.54, 5.71, 3.32]
+   top-5 previsti: [0, 1, 2, 3, 23]
+E4b layer12: Δ medio top5=+0.0079 bottom5=+0.0158 casuali5=+0.0168  top/casuali=0.47  -> NON superata (previsto: fallimento)

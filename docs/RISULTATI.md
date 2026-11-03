@@ -59,3 +59,43 @@ Lettura dei risultati:
 Conclusione di E1 run1: **nessuna evidenza di lettura "nativa"** dei pesi oltre a ciò che spiegano
 segno e intensità dei valori. Non confuta lo studio (che riguardava reti piccole e un altro LLM), ma per questo
 compito e questo modello la capacità non c'è.
+
+## E1 run2 – Lettura alla cieca, 4 righe × 32 valori (pre-registrata)
+| Metodo | Classe | Profondità |
+|---|---|---|
+| **Claude, a vista** | **36,4%** | **43,3%** |
+| k-NN statistiche | 27,3% | 56,7% |
+| Centroide statistiche | 27,3% | 36,7% |
+| Caso | 9,1% | 33,3% |
+- Criterio pre-registrato (≥ miglior classificatore +15 punti): **NON superato** (+9 punti sulla classe; −13 sulla profondità).
+- Norme 6/6 con il tipo giusto (incluso P12 = norm_in layer 0, dedotto dal vincolo di conteggio); bias 3/3.
+- Matrici: 2/21 + embedding 1/3 → al livello del caso.
+
+## E4 – Ablazione: previsione dai pesi, poi misura (pre-registrata)
+Base: perplexity 11,07 su 2.861 token di wikitext-2. Previsioni committate in `242ad11` prima della misura.
+
+| Test | Claude (statistiche pesi + conoscenza) | Predittore ingenuo | Soglia | Esito |
+|---|---|---|---|---|
+| E4a MLP per layer (Spearman) | **+0,887** | +0,104 (norma down_proj) | ≥ 0,5 | **superata** |
+| E4a attenzione per layer (Spearman) | +0,167 | +0,007 (norma o_proj) | ≥ 0,5 | non superata |
+| E4b gruppi di neuroni layer 12 (top5/casuali) | 0,47× | – | ≥ 2× | non superata (**fallimento previsto**) |
+
+- MLP: misurati più dannosi L0 (ppl 175.104, modello distrutto), L2 (73), L23 (20,7). Previsti: L2, L0, L21, L23.
+  I due layer con il neurone anomalo (L2) e la norma d'ingresso minuscola (L0) erano leggibili nelle statistiche dei pesi.
+  Errore: L21 (neurone con punteggio 18) ha Δ solo +2,7 → il "super neurone" di L21 non è critico.
+- Attenzione: L1 (ppl 19.912) e L0 (123) catastrofici, previsti 1° e 2° (invertiti). Ma L8 (+6,5) e L15-17 non previsti,
+  e L2-L3 previsti alti sono bassi → ranking complessivo debole.
+- E4b: nel layer 12 i gruppi da 64 neuroni sono quasi equivalenti (Δ tutti < 0,05 su 11,07): i pesi non li distinguono, come previsto.
+- Verifica scrittura su file: MLP L0 azzerata via `edit_weights.py` → ppl 175104,0024 = misura in memoria. ✔
+
+## Confronto E1 vs E4
+| | E1 – lettura "nativa" a vista | E4 – lettura strumentale (statistiche) + conoscenza |
+|---|---|---|
+| Cosa si chiede | dire cos'è un frammento di pesi | prevedere l'effetto di una modifica |
+| Risultato | non batte un classificatore banale (2 run) | MLP ρ = 0,89 (soglia superata); attenzione ρ = 0,17 |
+| Dove funziona | segnali grossolani: norme, bias | anomalie forti: layer iniziali, neuroni anomali, ultimo layer |
+| Dove fallisce | tipo e profondità delle matrici | ordine fine dei layer intermedi, attenzione, gruppi di neuroni |
+
+Conclusione: la lettura utile dei pesi passa da **strumenti di calcolo + conoscenza dell'architettura**, non dalla lettura
+dei numeri a vista. Prevede bene i **casi estremi** (cosa rompe il modello), male le differenze fini.
+Per specializzare un modello su un tema serve quindi l'addestramento (gradiente), non la scrittura manuale dei pesi.
