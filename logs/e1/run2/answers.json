@@ -1,0 +1,204 @@
+{
+ "metodo": "lettura a vista di logs/e1/run2/probes.md; nessun codice sui valori; key.json non aperto; esperienza del run1 usata",
+ "previsione_onesta": "norme e bias quasi tutti come famiglia; tipo delle matrici vicino al caso; profondità vicino al caso",
+ "answers": [
+  {
+   "id": "P00",
+   "cls": "mlp_up",
+   "depth": "mid",
+   "motivo": "medi"
+  },
+  {
+   "id": "P01",
+   "cls": "attn_o",
+   "depth": "early",
+   "motivo": "medi"
+  },
+  {
+   "id": "P02",
+   "cls": "norm_post",
+   "depth": "mid",
+   "motivo": "bimodale 0.22-2.8, come norm_post L11 run1; quasi identico a P28"
+  },
+  {
+   "id": "P03",
+   "cls": "attn_o",
+   "depth": "early",
+   "motivo": "medi"
+  },
+  {
+   "id": "P04",
+   "cls": "attn_o",
+   "depth": "mid",
+   "motivo": "medi"
+  },
+  {
+   "id": "P05",
+   "cls": "attn_v",
+   "depth": "mid",
+   "motivo": "medi"
+  },
+  {
+   "id": "P06",
+   "cls": "norm_in",
+   "depth": "early",
+   "motivo": "~0.75 con outlier alti fino a 2.5: come norm_in L2 del run1"
+  },
+  {
+   "id": "P07",
+   "cls": "mlp_gate",
+   "depth": "late",
+   "motivo": "i più grandi tra gli omogenei"
+  },
+  {
+   "id": "P08",
+   "cls": "embed",
+   "depth": "n/a",
+   "motivo": "righe piccole e omogenee (rms ~0.011)"
+  },
+  {
+   "id": "P09",
+   "cls": "norm_in",
+   "depth": "late",
+   "motivo": "~1.6 compatto con pochi bassi: come norm_in L18 del run1"
+  },
+  {
+   "id": "P10",
+   "cls": "mlp_up",
+   "depth": "mid",
+   "motivo": "medi"
+  },
+  {
+   "id": "P11",
+   "cls": "bias",
+   "depth": "mid",
+   "motivo": "outlier +12.8/+15.5 nella stessa colonna di due segmenti"
+  },
+  {
+   "id": "P12",
+   "cls": "norm_in",
+   "depth": "early",
+   "motivo": "vincolo di conteggio (servono 6 norme, solo 5 vettori positivi): valori piccoli quasi tutti positivi -> norm_in layer 0"
+  },
+  {
+   "id": "P13",
+   "cls": "embed",
+   "depth": "n/a",
+   "motivo": "righe piccole e omogenee"
+  },
+  {
+   "id": "P14",
+   "cls": "attn_q",
+   "depth": "mid",
+   "motivo": "righe eterogenee (ultima piccola)"
+  },
+  {
+   "id": "P15",
+   "cls": "embed",
+   "depth": "n/a",
+   "motivo": "righe piccole e omogenee"
+  },
+  {
+   "id": "P16",
+   "cls": "mlp_down",
+   "depth": "early",
+   "motivo": "piccoli omogenei"
+  },
+  {
+   "id": "P17",
+   "cls": "mlp_down",
+   "depth": "early",
+   "motivo": "piccoli omogenei"
+  },
+  {
+   "id": "P18",
+   "cls": "norm_post",
+   "depth": "early",
+   "motivo": "~1.4 con bassi 0.4-0.6, come norm_post L4 run1"
+  },
+  {
+   "id": "P19",
+   "cls": "attn_v",
+   "depth": "mid",
+   "motivo": "medi"
+  },
+  {
+   "id": "P20",
+   "cls": "attn_q",
+   "depth": "mid",
+   "motivo": "una riga con valori più grandi"
+  },
+  {
+   "id": "P21",
+   "cls": "attn_k",
+   "depth": "late",
+   "motivo": "righe eterogenee, prima riga fino a 0.084"
+  },
+  {
+   "id": "P22",
+   "cls": "attn_v",
+   "depth": "early",
+   "motivo": "medi"
+  },
+  {
+   "id": "P23",
+   "cls": "attn_q",
+   "depth": "mid",
+   "motivo": "righe eterogenee (2 molto piccole)"
+  },
+  {
+   "id": "P24",
+   "cls": "attn_k",
+   "depth": "late",
+   "motivo": "righe eterogenee, una riga fino a 0.125"
+  },
+  {
+   "id": "P25",
+   "cls": "bias",
+   "depth": "mid",
+   "motivo": "segmenti 1-2 piccoli, 3-4 O(1): bias, forse v"
+  },
+  {
+   "id": "P26",
+   "cls": "attn_k",
+   "depth": "mid",
+   "motivo": "righe eterogenee"
+  },
+  {
+   "id": "P27",
+   "cls": "mlp_gate",
+   "depth": "late",
+   "motivo": "grandi"
+  },
+  {
+   "id": "P28",
+   "cls": "norm_post",
+   "depth": "mid",
+   "motivo": "stesso schema di P02 (stessi canali bassi), valori un po' più alti"
+  },
+  {
+   "id": "P29",
+   "cls": "mlp_gate",
+   "depth": "mid",
+   "motivo": "grandi"
+  },
+  {
+   "id": "P30",
+   "cls": "mlp_up",
+   "depth": "late",
+   "motivo": "medio-grandi"
+  },
+  {
+   "id": "P31",
+   "cls": "mlp_down",
+   "depth": "early",
+   "motivo": "piccoli omogenei"
+  },
+  {
+   "id": "P32",
+   "cls": "bias",
+   "depth": "mid",
+   "motivo": "molti outlier ±10"
+  }
+ ]
+}
