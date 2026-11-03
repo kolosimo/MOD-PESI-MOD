@@ -1,0 +1,437 @@
+{
+ "seed": 4885175599351540777,
+ "model": "models/qwen2.5-0.5b-instruct",
+ "len": 32,
+ "rows_per_probe": 4,
+ "items": [
+  {
+   "cls": "attn_v",
+   "depth": "mid",
+   "tensor": "model.layers.15.self_attn.v_proj.weight",
+   "layer": 15,
+   "row": [
+    1,
+    79,
+    84,
+    90
+   ],
+   "col": 805
+  },
+  {
+   "cls": "mlp_down",
+   "depth": "late",
+   "tensor": "model.layers.21.mlp.down_proj.weight",
+   "layer": 21,
+   "row": [
+    137,
+    162,
+    553,
+    638
+   ],
+   "col": 2197
+  },
+  {
+   "cls": "norm_post",
+   "depth": "mid",
+   "tensor": "model.layers.12.post_attention_layernorm.weight",
+   "layer": 12,
+   "row": null,
+   "col": [
+    96,
+    192,
+    576,
+    704
+   ]
+  },
+  {
+   "cls": "attn_v",
+   "depth": "early",
+   "tensor": "model.layers.7.self_attn.v_proj.weight",
+   "layer": 7,
+   "row": [
+    40,
+    42,
+    108,
+    109
+   ],
+   "col": 364
+  },
+  {
+   "cls": "mlp_up",
+   "depth": "early",
+   "tensor": "model.layers.4.mlp.up_proj.weight",
+   "layer": 4,
+   "row": [
+    2869,
+    3528,
+    3719,
+    3798
+   ],
+   "col": 829
+  },
+  {
+   "cls": "mlp_gate",
+   "depth": "early",
+   "tensor": "model.layers.4.mlp.gate_proj.weight",
+   "layer": 4,
+   "row": [
+    346,
+    809,
+    1495,
+    3464
+   ],
+   "col": 750
+  },
+  {
+   "cls": "norm_in",
+   "depth": "early",
+   "tensor": "model.layers.2.input_layernorm.weight",
+   "layer": 2,
+   "row": null,
+   "col": [
+    64,
+    544,
+    576,
+    864
+   ]
+  },
+  {
+   "cls": "attn_o",
+   "depth": "early",
+   "tensor": "model.layers.5.self_attn.o_proj.weight",
+   "layer": 5,
+   "row": [
+    204,
+    270,
+    596,
+    634
+   ],
+   "col": 715
+  },
+  {
+   "cls": "attn_v",
+   "depth": "early",
+   "tensor": "model.layers.1.self_attn.v_proj.weight",
+   "layer": 1,
+   "row": [
+    29,
+    53,
+    84,
+    113
+   ],
+   "col": 439
+  },
+  {
+   "cls": "norm_in",
+   "depth": "late",
+   "tensor": "model.layers.17.input_layernorm.weight",
+   "layer": 17,
+   "row": null,
+   "col": [
+    0,
+    192,
+    288,
+    832
+   ]
+  },
+  {
+   "cls": "attn_k",
+   "depth": "late",
+   "tensor": "model.layers.20.self_attn.k_proj.weight",
+   "layer": 20,
+   "row": [
+    18,
+    43,
+    48,
+    119
+   ],
+   "col": 765
+  },
+  {
+   "cls": "bias",
+   "depth": "early",
+   "tensor": "model.layers.4.self_attn.q_proj.bias",
+   "layer": 4,
+   "row": null,
+   "col": [
+    32,
+    192,
+    256,
+    736
+   ]
+  },
+  {
+   "cls": "norm_in",
+   "depth": "early",
+   "tensor": "model.layers.0.input_layernorm.weight",
+   "layer": 0,
+   "row": null,
+   "col": [
+    0,
+    480,
+    576,
+    736
+   ]
+  },
+  {
+   "cls": "embed",
+   "depth": "n/a",
+   "tensor": "model.embed_tokens.weight",
+   "layer": null,
+   "row": [
+    27563,
+    110007,
+    111724,
+    138774
+   ],
+   "col": 648
+  },
+  {
+   "cls": "attn_k",
+   "depth": "early",
+   "tensor": "model.layers.7.self_attn.k_proj.weight",
+   "layer": 7,
+   "row": [
+    1,
+    5,
+    28,
+    67
+   ],
+   "col": 530
+  },
+  {
+   "cls": "attn_o",
+   "depth": "early",
+   "tensor": "model.layers.6.self_attn.o_proj.weight",
+   "layer": 6,
+   "row": [
+    110,
+    382,
+    456,
+    458
+   ],
+   "col": 320
+  },
+  {
+   "cls": "attn_q",
+   "depth": "early",
+   "tensor": "model.layers.7.self_attn.q_proj.weight",
+   "layer": 7,
+   "row": [
+    269,
+    325,
+    874,
+    893
+   ],
+   "col": 488
+  },
+  {
+   "cls": "embed",
+   "depth": "n/a",
+   "tensor": "model.embed_tokens.weight",
+   "layer": null,
+   "row": [
+    13150,
+    18502,
+    102603,
+    115231
+   ],
+   "col": 557
+  },
+  {
+   "cls": "norm_post",
+   "depth": "early",
+   "tensor": "model.layers.7.post_attention_layernorm.weight",
+   "layer": 7,
+   "row": null,
+   "col": [
+    64,
+    160,
+    544,
+    704
+   ]
+  },
+  {
+   "cls": "mlp_up",
+   "depth": "late",
+   "tensor": "model.layers.22.mlp.up_proj.weight",
+   "layer": 22,
+   "row": [
+    648,
+    898,
+    2430,
+    2548
+   ],
+   "col": 673
+  },
+  {
+   "cls": "mlp_up",
+   "depth": "mid",
+   "tensor": "model.layers.13.mlp.up_proj.weight",
+   "layer": 13,
+   "row": [
+    1332,
+    2476,
+    2837,
+    3718
+   ],
+   "col": 165
+  },
+  {
+   "cls": "attn_q",
+   "depth": "early",
+   "tensor": "model.layers.1.self_attn.q_proj.weight",
+   "layer": 1,
+   "row": [
+    51,
+    128,
+    451,
+    769
+   ],
+   "col": 752
+  },
+  {
+   "cls": "mlp_down",
+   "depth": "mid",
+   "tensor": "model.layers.13.mlp.down_proj.weight",
+   "layer": 13,
+   "row": [
+    142,
+    301,
+    639,
+    861
+   ],
+   "col": 8
+  },
+  {
+   "cls": "mlp_down",
+   "depth": "mid",
+   "tensor": "model.layers.11.mlp.down_proj.weight",
+   "layer": 11,
+   "row": [
+    122,
+    266,
+    457,
+    513
+   ],
+   "col": 2322
+  },
+  {
+   "cls": "attn_o",
+   "depth": "late",
+   "tensor": "model.layers.16.self_attn.o_proj.weight",
+   "layer": 16,
+   "row": [
+    87,
+    103,
+    684,
+    876
+   ],
+   "col": 678
+  },
+  {
+   "cls": "bias",
+   "depth": "early",
+   "tensor": "model.layers.5.self_attn.v_proj.bias",
+   "layer": 5,
+   "row": null,
+   "col": [
+    0,
+    32,
+    64,
+    96
+   ]
+  },
+  {
+   "cls": "attn_k",
+   "depth": "mid",
+   "tensor": "model.layers.13.self_attn.k_proj.weight",
+   "layer": 13,
+   "row": [
+    66,
+    80,
+    81,
+    114
+   ],
+   "col": 352
+  },
+  {
+   "cls": "attn_q",
+   "depth": "mid",
+   "tensor": "model.layers.15.self_attn.q_proj.weight",
+   "layer": 15,
+   "row": [
+    87,
+    126,
+    264,
+    512
+   ],
+   "col": 114
+  },
+  {
+   "cls": "norm_post",
+   "depth": "mid",
+   "tensor": "model.layers.11.post_attention_layernorm.weight",
+   "layer": 11,
+   "row": null,
+   "col": [
+    128,
+    192,
+    384,
+    608
+   ]
+  },
+  {
+   "cls": "mlp_gate",
+   "depth": "early",
+   "tensor": "model.layers.5.mlp.gate_proj.weight",
+   "layer": 5,
+   "row": [
+    973,
+    2140,
+    2562,
+    2821
+   ],
+   "col": 688
+  },
+  {
+   "cls": "mlp_gate",
+   "depth": "early",
+   "tensor": "model.layers.6.mlp.gate_proj.weight",
+   "layer": 6,
+   "row": [
+    2070,
+    4082,
+    4263,
+    4360
+   ],
+   "col": 638
+  },
+  {
+   "cls": "embed",
+   "depth": "n/a",
+   "tensor": "model.embed_tokens.weight",
+   "layer": null,
+   "row": [
+    3692,
+    83061,
+    103582,
+    113399
+   ],
+   "col": 639
+  },
+  {
+   "cls": "bias",
+   "depth": "early",
+   "tensor": "model.layers.6.self_attn.q_proj.bias",
+   "layer": 6,
+   "row": null,
+   "col": [
+    32,
+    160,
+    672,
+    768
+   ]
+  }
+ ]
+}
