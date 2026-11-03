@@ -56,3 +56,8 @@ Come riportata nella conversazione:
 - GitHub rifiuta file > 100 MB senza Git LFS; i pesi pesano GB. → vedi `docs/CARICAMENTO_PESI.md`.
 - Miliardi di parametri: leggerli tutti direttamente non è realistico → lavorare su layer, tensori, porzioni.
 - Da definire: quale modello, quale formato (safetensors / GGUF), quale modifica si vuole ottenere.
+
+## Aggiornamento obiettivo (3/11/2026, sera)
+Dopo E0–E4 Delio ha ridefinito l'obiettivo: **prendere il modello open più piccolo possibile e addestrarlo
+(modificandone i pesi) per specializzarlo in prompt engineering, loop engineering e context engineering,
+secondo le best practice.** Piano: `docs/PIANO_SPECIALIZZAZIONE.md`. Risultati precedenti: `docs/RISULTATI.md`.

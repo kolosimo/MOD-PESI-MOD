@@ -7,6 +7,7 @@ a **modificarli** con effetti prevedibili e misurati.
 - Piano esperimenti: [`docs/PIANO_ESPERIMENTI.md`](docs/PIANO_ESPERIMENTI.md)
 - Come caricare i pesi: [`docs/CARICAMENTO_PESI.md`](docs/CARICAMENTO_PESI.md)
 - **Risultati**: [`docs/RISULTATI.md`](docs/RISULTATI.md)
+- **Piano di specializzazione** (obiettivo attuale): [`docs/PIANO_SPECIALIZZAZIONE.md`](docs/PIANO_SPECIALIZZAZIONE.md)
 
 ## Struttura
 
